@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="v7MGUNV8MxU" data-toggle="modal" data-target="#trailer">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492753237992&di=b700d006f690e84ad785b77a15049b2c&imgtype=0&src=http%3A%2F%2Fwww.dzyule.com%2Fuploadfile%2F2015%2F1016%2F20151016092546775.jpg" width="220" height="342">
+    <h2>Thor: Ragnarok Teaser</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="OnvPhdmp6BE" data-toggle="modal" data-target="#trailer">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492753835727&di=f4d10e890736cfc10a17f176edcaba9f&imgtype=0&src=http%3A%2F%2Fpic.77ds.net%3A878%2Fpic%2Fcai%2F201609%2Ftv%2F2015-10%2F60608.jpg" width="220" height="342">
+    <h2>Transformers 5</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="pknz-qempok" data-toggle="modal" data-target="#trailer">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492754534153&di=4aecfbeacb10b3e70a55ec5665fd24d9&imgtype=0&src=http%3A%2F%2Fi-4.yxdown.com%2F2016%2F9%2F21%2Fc5dbb49b-0f85-4813-8617-ec000e925422.jpg" width="220" height="342">
+    <h2>Smurfs: The Lost Village</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="lAkw1M2G5y8" data-toggle="modal" data-target="#trailer">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492754796698&di=e51583077a391ff8ea194f207e8b7706&imgtype=0&src=http%3A%2F%2Fv3img.osscdn.ifensi.com%2Fxw_imgs%2F2016%2F10%2F24%2F23eb8f10ab3c5.jpg" width="220" height="342">
+    <h2>Moana</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="J0hx9HmoXu4" data-toggle="modal" data-target="#trailer">
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1492754969816&di=6133cfe47ffde08b9568543b571e3164&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201603%2F31%2F20160331160753_K3WwA.thumb.700_0.jpeg" width="220" height="342">
+    <h2>Zootopia</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="6DBi41reeF0" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.hachettebookgroup.com/_b2c/media/cache/55/db/55db8e0cbb591cb109b2512a1bcc0c65.jpg" width="220" height="342">
+    <h2>Despicable Me 3</h2>
+</div>
+
+    </div>
+  </body>
+</html>
